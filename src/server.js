@@ -9,6 +9,12 @@ import http from 'node:http'
 // DELETE /users/:id - Delete a user
 
 // Cabeçalhos ( requisição e resposta) => Metadados
+
+
+// HTTP Status Code
+
+
+
 const users = []
 
 const server = http.createServer((request, response) => {
@@ -21,14 +27,16 @@ const server = http.createServer((request, response) => {
   }
 
   if (method === 'POST' && url === '/users') {
+
     users.push({
       id: 1,
       name: 'John Doe',
       email: 'johndoe@email.com',
     })
+    return response.writeHead(201).end()
   }
 
-  return response.end('Hello World')
+  return response.writeHead(404).end("Not found")
 })
 
 server.listen(3333)
