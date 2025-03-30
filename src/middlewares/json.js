@@ -1,4 +1,4 @@
-export async function json(request, response) {
+export async function json(request) {
   const buffers = []
 
   for await (const chunk of request) {
